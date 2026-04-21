@@ -7,3 +7,5 @@ def test_list_duties_returns_a_list_component():
 def test_list_duties_returns_at_least_one_duty():
     result = list_duties()
     assert len(result) > 0
+    assert 'duty1' in result
+    assert 'duty2' in result

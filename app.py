@@ -4,4 +4,4 @@ app = Flask(__name__)
 
 @app.route("/")
 def list_duties():
-    return ['']
+    return ['duty1', 'duty2']

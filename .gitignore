@@ -245,3 +245,5 @@ override.tf.json
 terraform.rc
 
 .DS_Store
+__pycache__/app.cpython-313.pyc
+__pycache__/test_app.cpython-313-pytest-9.0.3.pyc
