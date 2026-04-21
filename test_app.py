@@ -7,16 +7,38 @@ def test_list_duties_returns_a_list_component():
 def test_list_duties_returns_at_least_one_duty():
     result = list_duties()
     assert len(result) > 0
-    assert 'duty1' in result
+    # assert 'duty1' in result
 
 def test_list_duties_returns_at_least_two_duties():
     result = list_duties()
     assert len(result) > 1
-    assert 'duty2' in result
+    # assert 'duty2' in result
 
-def test_list_duties_returns_all_duties():
-    duty_list = ['duty1', 'duty2', 'duty3', 'duty4', 'duty5', 'duty6', 'duty7', 'duty8', 'duty9', 'duty10', 'duty11', 'duty12', 'duty13']
+# def test_list_duties_returns_all_duties():
+#     duty_list = ['duty1', 'duty2', 'duty3', 'duty4', 'duty5', 'duty6', 'duty7', 'duty8', 'duty9', 'duty10', 'duty11', 'duty12', 'duty13']
+#     result = list_duties() 
+
+#     for duty in duty_list:
+#         assert duty in result
+
+def test_list_duties_returns_a_dictionary_of_duties_with_duty_number_and_description():
     result = list_duties() 
-
+    duty_list = [
+                    {"Duty Number": 1, "Description": "Duty 1 description"},
+                    {"Duty Number": 2, "Description": "Duty 2 description"},
+                    {"Duty Number": 3, "Description": "Duty 3 description"},
+                    {"Duty Number": 4, "Description": "Duty 4 description"},
+                    {"Duty Number": 5, "Description": "Duty 5 description"},
+                    {"Duty Number": 6, "Description": "Duty 6 description"},
+                    {"Duty Number": 7, "Description": "Duty 7 description"},
+                    {"Duty Number": 8, "Description": "Duty 8 description"},
+                    {"Duty Number": 9, "Description": "Duty 9 description"},
+                    {"Duty Number": 10, "Description": "Duty 10 description"},
+                    {"Duty Number": 11, "Description": "Duty 11 description"},
+                    {"Duty Number": 12, "Description": "Duty 12 description"},
+                    {"Duty Number": 13, "Description": "Duty 13 description"} 
+                ]
+    
+    assert result == duty_list
     for duty in duty_list:
-        assert duty in result
+         assert duty in result
