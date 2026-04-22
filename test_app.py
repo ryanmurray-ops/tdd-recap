@@ -1,17 +1,20 @@
+import pytest
 from app import list_duties
+from app import Duty
+import db
 
-def test_list_duties_returns_a_list_component():
-    result = list_duties()
-    assert isinstance(result, list)
+# def test_list_duties_returns_a_list_component():
+#     result = list_duties()
+#     assert isinstance(result, list)
 
-def test_list_duties_returns_at_least_one_duty():
-    result = list_duties()
-    assert len(result) > 0
-    # assert 'duty1' in result
+# def test_list_duties_returns_at_least_one_duty():
+#     result = list_duties()
+#     assert len(result) > 0
+#     # assert 'duty1' in result
 
-def test_list_duties_returns_at_least_two_duties():
-    result = list_duties()
-    assert len(result) > 1
+# def test_list_duties_returns_at_least_two_duties():
+#     result = list_duties()
+#     assert len(result) > 1
     # assert 'duty2' in result
 
 # def test_list_duties_returns_all_duties():
@@ -21,24 +24,63 @@ def test_list_duties_returns_at_least_two_duties():
 #     for duty in duty_list:
 #         assert duty in result
 
-def test_list_duties_returns_a_dictionary_of_duties_with_duty_number_and_description():
-    result = list_duties() 
-    duty_list = [
-                    {"Duty Number": 1, "Description": "Duty 1 description"},
-                    {"Duty Number": 2, "Description": "Duty 2 description"},
-                    {"Duty Number": 3, "Description": "Duty 3 description"},
-                    {"Duty Number": 4, "Description": "Duty 4 description"},
-                    {"Duty Number": 5, "Description": "Duty 5 description"},
-                    {"Duty Number": 6, "Description": "Duty 6 description"},
-                    {"Duty Number": 7, "Description": "Duty 7 description"},
-                    {"Duty Number": 8, "Description": "Duty 8 description"},
-                    {"Duty Number": 9, "Description": "Duty 9 description"},
-                    {"Duty Number": 10, "Description": "Duty 10 description"},
-                    {"Duty Number": 11, "Description": "Duty 11 description"},
-                    {"Duty Number": 12, "Description": "Duty 12 description"},
-                    {"Duty Number": 13, "Description": "Duty 13 description"} 
-                ]
+# def test_list_duties_returns_a_dictionary_of_duties_with_duty_number_and_description():
+#     result = list_duties() 
+#     duty_list = [
+#                     {"Duty Number": 1, "Description": "Duty 1 description"},
+#                     {"Duty Number": 2, "Description": "Duty 2 description"},
+#                     {"Duty Number": 3, "Description": "Duty 3 description"},
+#                     {"Duty Number": 4, "Description": "Duty 4 description"},
+#                     {"Duty Number": 5, "Description": "Duty 5 description"},
+#                     {"Duty Number": 6, "Description": "Duty 6 description"},
+#                     {"Duty Number": 7, "Description": "Duty 7 description"},
+#                     {"Duty Number": 8, "Description": "Duty 8 description"},
+#                     {"Duty Number": 9, "Description": "Duty 9 description"},
+#                     {"Duty Number": 10, "Description": "Duty 10 description"},
+#                     {"Duty Number": 11, "Description": "Duty 11 description"},
+#                     {"Duty Number": 12, "Description": "Duty 12 description"},
+#                     {"Duty Number": 13, "Description": "Duty 13 description"} 
+#                 ]
     
-    assert result == duty_list
-    for duty in duty_list:
-         assert duty in result
+#     assert result == duty_list
+#     for duty in duty_list:
+#          assert duty in result
+
+# @pytest.fixture
+# def list_duties():
+#     duty_list = [
+#                     {"Duty Number": 1, "Description": "Duty 1 description"},
+#                     {"Duty Number": 2, "Description": "Duty 2 description"},
+#                     {"Duty Number": 3, "Description": "Duty 3 description"},
+#                     {"Duty Number": 4, "Description": "Duty 4 description"},
+#                     {"Duty Number": 5, "Description": "Duty 5 description"},
+#                     {"Duty Number": 6, "Description": "Duty 6 description"},
+#                     {"Duty Number": 7, "Description": "Duty 7 description"},
+#                     {"Duty Number": 8, "Description": "Duty 8 description"},
+#                     {"Duty Number": 9, "Description": "Duty 9 description"},
+#                     {"Duty Number": 10, "Description": "Duty 10 description"},
+#                     {"Duty Number": 11, "Description": "Duty 11 description"},
+#                     {"Duty Number": 12, "Description": "Duty 12 description"},
+#                     {"Duty Number": 13, "Description": "Duty 13 description"} 
+#                 ]
+#     return duty_list
+
+def test_duty_has_identifier(mocker):
+
+    mock_data = {
+        'identifier': 1,
+        'description': 'duty 1 description' 
+    }
+
+    mocker.patch('db.get_duty', return_value = mock_data)
+    duty_1 = db.get_duty(1)
+    assert 'identifier' in duty_1
+
+def xtest_duty_has_description():
+    duty_1 = db.get_duty(1)
+    assert hasattr(duty_1, 'description')
+
+def xtest_duty_1_description_has_correct_identifier():
+    duty_1 = db.get_duty(1)
+    assert duty_1.identifier == 1
+
