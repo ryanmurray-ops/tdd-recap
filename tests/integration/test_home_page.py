@@ -8,7 +8,10 @@ test_app = app.test_client()
 def test_home_page_is_reachable():
     response = test_app.get('/')
     assert response.status_code is 200
-    assert "Duty 1" in response.text 
+
+def test_homepage_page_content_contains_automate():
+    response = test_app.get('/')
+    assert "Automate" in response.text
 
 # def test_home_page_is_reachable(page:Page):
 #     page.goto("localhost:5000/")
