@@ -1,2 +1,5 @@
-def get_duty(duty):
-    pass
+def get_all_duties():
+    return [
+        {"identifier": 1, "description": "Duty 1"}
+    ]
+

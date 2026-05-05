@@ -72,15 +72,15 @@ def test_duty_has_identifier(mocker):
         'description': 'duty 1 description' 
     }
 
-    mocker.patch('db.get_duty', return_value = mock_data)
-    duty_1 = db.get_duty(1)
+    mocker.patch('db.get_all_duties', return_value = mock_data)
+    duty_1 = db.get_all_duties()
     assert 'identifier' in duty_1
 
-def xtest_duty_has_description():
-    duty_1 = db.get_duty(1)
-    assert hasattr(duty_1, 'description')
+# def xtest_duty_has_description():
+#     duty_1 = db.get_duty(1)
+#     assert hasattr(duty_1, 'description')
 
-def xtest_duty_1_description_has_correct_identifier():
-    duty_1 = db.get_duty(1)
-    assert duty_1.identifier == 1
+# def xtest_duty_1_description_has_correct_identifier():
+#     duty_1 = db.get_duty(1)
+#     assert duty_1.identifier == 1
 
