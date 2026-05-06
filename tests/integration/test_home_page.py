@@ -51,6 +51,13 @@ def test_add_duty_reads_form_data():
     })
     assert "11" in response.text
 
+def test_add_duty_returns_description_from_form():
+    response = test_app.post("/add-duty", data={
+        "identifier": "11",
+        "description": "New duty"
+    })
+    assert "New Duty" in response.text 
+
 # def test_home_page_is_reachable(page:Page):
 #     page.goto("localhost:5000/")
 #     expect(page).to_have_title(re.compile("Index"))
