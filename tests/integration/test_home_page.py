@@ -37,7 +37,7 @@ def test_homepage_shows_all_automate_duties():
 
 def test_homepage_shows_correct_duty_descriptions():
     response = test_app.get('/')
-    assert "Build and operate a Continuous Integration (CI) capability, employing version control of source code and related artifacts" in response.text
+    assert "Build and operate a continuous Integration (CI) capability, employing version control of source code and related artifacts" in response.text
     assert "Provision cloud infrastructure using APIs, continually improve infrastructure-as-code, considering use of industry leading technologies as they become available (e.g. Serverless, Containers)" in response.text
     assert "Implement a good coverage of monitoring (metrics, logs), ensuring that alerts are visible, tuneable and actionable" in response.text
 

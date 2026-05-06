@@ -6,11 +6,11 @@ def get_all_duties():
         },
         {
             "identifier": 7, 
-            "description": ""
+            "description": "Provision cloud infrastructure using APIs, continually improve infrastructure-as-code, considering use of industry leading technologies as they become available (e.g. Serverless, Containers)"
         },
         {
             "identifier": 10, 
-            "description": ""
+            "description": "Implement a good coverage of monitoring (metrics, logs), ensuring that alerts are visible, tuneable and actionable"
         }
     ]
 
