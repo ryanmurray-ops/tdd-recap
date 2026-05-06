@@ -9,6 +9,10 @@ def list_duties():
     database_duties = get_all_duties()
     return render_template("index.html", duties= database_duties)
 
+@app.route("/add-duty", methods=["POST"])
+def add_duty():
+    return "ok"
+
 class Duty:
     def __init__(self, identifier, description):
         self.identifier = identifier
