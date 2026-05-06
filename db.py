@@ -3,6 +3,14 @@ def get_all_duties():
         {
             "identifier": 5, 
             "description": "Build and operate a continuous Integration (CI) capability, employing version control of source code and related artifacts"
+        },
+        {
+            "identifier": 7, 
+            "description": ""
+        },
+        {
+            "identifier": 10, 
+            "description": ""
         }
     ]
 
