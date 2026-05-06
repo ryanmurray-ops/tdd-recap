@@ -41,6 +41,10 @@ def test_homepage_shows_correct_duty_descriptions():
     assert "Provision cloud infrastructure using APIs, continually improve infrastructure-as-code, considering use of industry leading technologies as they become available (e.g. Serverless, Containers)" in response.text
     assert "Implement a good coverage of monitoring (metrics, logs), ensuring that alerts are visible, tuneable and actionable" in response.text
 
+def test_add_duty_route_exists():
+    response = test_app.post("/add-duty", data={})
+    assert response.status_code != 404 
+
 # def test_home_page_is_reachable(page:Page):
 #     page.goto("localhost:5000/")
 #     expect(page).to_have_title(re.compile("Index"))
