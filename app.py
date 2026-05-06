@@ -11,8 +11,13 @@ def list_duties():
 
 @app.route("/add-duty", methods=["POST"])
 def add_duty():
-    identifier = request.form["identifier"]
-    return identifier
+    new_duty = {
+        "identifier": request.form["identifier"],
+        "description": request.form["description"]
+
+    }
+    
+    return new_duty["description"]
 
 if __name__ == "__main__":
     app.run(debug=True)
