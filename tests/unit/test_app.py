@@ -1,6 +1,5 @@
 import pytest
 from app import list_duties
-from app import Duty
 import db
 
 # def test_list_duties_returns_a_list_component():
@@ -65,16 +64,16 @@ import db
 #                 ]
 #     return duty_list
 
-def test_duty_has_identifier(mocker):
+# def test_duty_has_identifier(mocker):
 
-    mock_data = {
-        'identifier': 1,
-        'description': 'duty 1 description' 
-    }
+#     mock_data = {
+#         'identifier': 1,
+#         'description': 'duty 1 description' 
+#     }
 
-    mocker.patch('db.get_all_duties', return_value = mock_data)
-    duty_1 = db.get_all_duties()
-    assert 'identifier' in duty_1
+#     mocker.patch('db.get_all_duties', return_value = mock_data)
+#     duty_1 = db.get_all_duties()
+#     assert 'identifier' in duty_1
 
 # def xtest_duty_has_description():
 #     duty_1 = db.get_duty(1)

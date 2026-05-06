@@ -45,6 +45,12 @@ def test_add_duty_route_exists():
     response = test_app.post("/add-duty", data={})
     assert response.status_code != 404 
 
+def test_add_duty_reads_form_data():
+    response = test_app.post("/add-duty", data={
+        "identifier": "11"
+    })
+    assert "11" in response.text
+
 # def test_home_page_is_reachable(page:Page):
 #     page.goto("localhost:5000/")
 #     expect(page).to_have_title(re.compile("Index"))
