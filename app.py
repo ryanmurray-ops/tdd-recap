@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 from db import get_all_duties
 
@@ -11,7 +11,8 @@ def list_duties():
 
 @app.route("/add-duty", methods=["POST"])
 def add_duty():
-    return "ok"
+    identifier = request.form["identifier"]
+    return identifier
 
 if __name__ == "__main__":
     app.run(debug=True)
