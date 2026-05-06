@@ -13,10 +13,5 @@ def list_duties():
 def add_duty():
     return "ok"
 
-class Duty:
-    def __init__(self, identifier, description):
-        self.identifier = identifier
-        self.description = description
-
 if __name__ == "__main__":
     app.run(debug=True)
