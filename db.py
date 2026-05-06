@@ -1,5 +1,5 @@
 def get_all_duties():
     return [
-        {"identifier": 1, "description": "Duty 1"}
+        {"identifier": 5, "description": "Build CI pipeline"}
     ]
 
