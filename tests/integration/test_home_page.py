@@ -29,6 +29,12 @@ def test_home_page_formats_duty_5_correctly():
     response = test_app.get('/')
     assert "Duty 5 - Build and operate a continuous Integration (CI) capability, employing version control of source code and related artifacts" in response.text
 
+def test_homepage_shows_all_automate_duties():
+    response = test_app.get('/')
+    assert "Duty 5" in response.text
+    assert "Duty 7" in response.text
+    assert "Duty 10" in response.text
+
 # def test_home_page_is_reachable(page:Page):
 #     page.goto("localhost:5000/")
 #     expect(page).to_have_title(re.compile("Index"))
