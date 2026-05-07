@@ -103,6 +103,11 @@ def test_homepage_has_add_duty_form():
 
     assert "<form" in response.text
 
+def test_homepage_has_identifier_input():
+    response = test_app.get("/")
+
+    assert 'name="identifier"' in response.text
+
 # def test_home_page_is_reachable(page:Page):
 #     page.goto("localhost:5000/")
 #     expect(page).to_have_title(re.compile("Index"))
