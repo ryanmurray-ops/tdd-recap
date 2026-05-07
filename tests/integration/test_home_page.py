@@ -52,6 +52,13 @@ def test_add_duty_returns_successful_response():
     })
     assert response.status_code == 200
 
+def test_add_duty_returns_identifier_from_form():
+    response = test_app.post("/add-duty", data={
+        "identifier": "11",
+        "description": "New duty"
+    })
+    assert "11" in response.text 
+
 def test_add_duty_returns_description_from_form():
     response = test_app.post("/add-duty", data={
         "identifier": "11",
