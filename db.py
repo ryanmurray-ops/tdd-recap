@@ -16,3 +16,5 @@ duties = [
 def get_all_duties():
     return duties
 
+def add_duty(duty):
+    duties.append(duty)
