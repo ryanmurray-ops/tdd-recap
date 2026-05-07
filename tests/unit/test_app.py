@@ -95,3 +95,13 @@ def test_add_duty_adds_new_duty_to_duties_variable():
 
     assert new_duty in duties
 
+def test_identifier_is_unique_returns_false_for_duplicate_identifier():
+    db.add_duty({
+        "identifier": "12",
+        "description": "First duty"
+    })
+
+    result = db.identifier_is_unique("12")
+
+    assert result is False
+
