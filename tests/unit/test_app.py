@@ -83,3 +83,15 @@ import db
 #     duty_1 = db.get_duty(1)
 #     assert duty_1.identifier == 1
 
+def test_add_duty_adds_new_duty_to_duties_variable():
+    new_duty = {
+        "identifier": "12",
+        "description": "Stored duty"
+    }
+
+    db.add_duty(new_duty)
+
+    duties = db.get_all_duties()
+
+    assert new_duty in duties
+
