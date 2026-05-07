@@ -17,7 +17,7 @@ def add_duty():
 
     }
     
-    return new_duty["description"]
+    return new_duty
 
 if __name__ == "__main__":
     app.run(debug=True)
