@@ -118,6 +118,16 @@ def test_homepage_form_has_submit_button():
 
     assert 'type="submit"' in response.text
 
+def test_user_can_add_a_new_duty_and_render_it_to_the_homepage():
+    test_app.post("/add-duty", data={
+        "identifier": "21",
+        "description": "New duty test"
+    })
+
+    response = test_app.get("/")
+
+    assert "Duty 21 - New duty test" in response.text
+    
 # def test_home_page_is_reachable(page:Page):
 #     page.goto("localhost:5000/")
 #     expect(page).to_have_title(re.compile("Index"))
