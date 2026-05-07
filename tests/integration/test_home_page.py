@@ -74,6 +74,30 @@ def test_added_duty_appears_on_homepage():
     response = test_app.get("/")
     assert "Stored duty" in response.text
 
+def test_homepage_formats_duty_correctly():
+    test_app.post('/add-duty', data={
+        "identifier": "12",
+        "description": "Stored duty"
+    })
+
+    response = test_app.get('/')
+
+    assert "Duty 12 - Stored duty" in response.text
+
+def test_duplicate_duty_identifier_is_not_added():
+    test_app.post("/add-duty", data={
+        "identifier": "12",
+        "description": "First duty"
+    })
+    test_app.post("/add-duty", data={
+        "identifier": "12",
+        "description": "Duplicate duty"
+    })
+
+    response = test_app.get("/")
+
+    assert response.text.count("Duty 12") == 1
+
 # def test_home_page_is_reachable(page:Page):
 #     page.goto("localhost:5000/")
 #     expect(page).to_have_title(re.compile("Index"))
