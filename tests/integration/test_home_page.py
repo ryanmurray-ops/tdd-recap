@@ -101,7 +101,7 @@ def test_duplicate_duty_identifier_is_not_added():
 def test_homepage_has_add_duty_form():
     response = test_app.get('/')
 
-    assert "<form>" in response.text
+    assert "<form" in response.text
 
 # def test_home_page_is_reachable(page:Page):
 #     page.goto("localhost:5000/")
