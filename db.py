@@ -18,3 +18,10 @@ def get_all_duties():
 
 def add_duty(duty):
     duties.append(duty)
+
+def identifier_is_unique(identifier):
+    for duty in duties:
+        if duty["identifier"] == identifier:
+            return False
+    
+    return True
