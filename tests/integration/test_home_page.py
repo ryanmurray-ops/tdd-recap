@@ -127,7 +127,17 @@ def test_user_can_add_a_new_duty_and_render_it_to_the_homepage():
     response = test_app.get("/")
 
     assert "Duty 21 - New duty test" in response.text
-    
+
+def test_empty_identifier_is_not_added():
+    test_app.post("/add-duty", data={
+        "identifier": "",
+        "description": "Valid description"
+    })
+
+    response = test_app.get("/")
+
+    assert "Valid description" not in response.text
+
 # def test_home_page_is_reachable(page:Page):
 #     page.goto("localhost:5000/")
 #     expect(page).to_have_title(re.compile("Index"))
