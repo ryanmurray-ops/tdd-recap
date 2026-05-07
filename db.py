@@ -20,6 +20,9 @@ def add_duty(new_duty):
 
     if not new_duty["identifier"]:
         return
+    
+    if not new_duty["description"]:
+        return
 
     if not identifier_is_unique(new_duty["identifier"]):
         return
