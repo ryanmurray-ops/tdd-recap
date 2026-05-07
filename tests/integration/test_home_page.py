@@ -64,7 +64,15 @@ def test_add_duty_returns_description_from_form():
         "identifier": "11",
         "description": "New duty"
     })
-    assert "New duty" in response.text 
+    assert "New duty" in response.text
+
+def test_added_duty_appears_on_homepage():
+    test_app.post("/add-duty", data={
+        "identifier": 12,
+        "description": "Stored duty"
+    })
+    response = test_app.get("/")
+    assert "Stored duty" in response.text
 
 # def test_home_page_is_reachable(page:Page):
 #     page.goto("localhost:5000/")
