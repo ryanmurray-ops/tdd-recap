@@ -105,3 +105,12 @@ def test_identifier_is_unique_returns_false_for_duplicate_identifier():
 
     assert result is False
 
+def test_validate_duty_returns_false_for_empty_identifier():
+    new_duty = {
+        "identifier": "",
+        "description": "Valid description"
+    }
+    result = db.validate_duty(new_duty)
+
+    assert result is False
+
