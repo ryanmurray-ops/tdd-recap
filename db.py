@@ -18,10 +18,7 @@ def get_all_duties():
 
 def add_duty(new_duty):
 
-    if not new_duty["identifier"]:
-        return
-    
-    if not new_duty["description"]:
+    if not validate_duty(new_duty):
         return
 
     if not identifier_is_unique(new_duty["identifier"]):
