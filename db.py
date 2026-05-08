@@ -30,8 +30,16 @@ def add_duty(new_duty):
     duties.append(new_duty)
 
 def identifier_is_unique(identifier):
+    
     for duty in duties:
         if duty["identifier"] == identifier:
             return False
+    
+    return True
+
+def validate_duty(new_duty):
+
+    if not new_duty["identifier"]:
+        return False
     
     return True
