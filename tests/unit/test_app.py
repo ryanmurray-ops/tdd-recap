@@ -114,3 +114,12 @@ def test_validate_duty_returns_false_for_empty_identifier():
 
     assert result is False
 
+def test_validate_duty_returns_false_for_empty_description():
+    new_duty = {
+        "identifier": "12",
+        "description": ""
+    }
+    result = db.validate_duty(new_duty)
+
+    assert result is False
+
