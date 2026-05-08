@@ -110,25 +110,27 @@ def test_validate_duty_returns_false_for_empty_identifier():
         "identifier": "",
         "description": "Valid description"
     }
-    result = db.validate_duty(new_duty)
 
-    assert result is False
+    result =  db.validate_duty(new_duty)
+
+    assert result == "Please enter a duty number"
 
 def test_validate_duty_returns_false_for_empty_description():
     new_duty = {
         "identifier": "12",
         "description": ""
     }
-    result = db.validate_duty(new_duty)
 
-    assert result is False
+    result =  db.validate_duty(new_duty)
 
-def test_validate_duty_returns_true_for_valid_duty():
+    assert result == "Please enter a duty description"
+
+def test_validate_duty_returns_None_for_valid_duty():
     new_duty = {
         "identifier": "12",
         "description": "Valid duty"
     }
     result = db.validate_duty(new_duty)
 
-    assert result is True
+    assert result is None
 

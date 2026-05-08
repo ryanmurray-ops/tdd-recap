@@ -24,8 +24,10 @@ def add_duty(new_duty):
 
     error_message = None
 
-    if not validate_duty(new_duty):
-        error_message = "Please enter a duty number"
+    validation_error = validate_duty(new_duty)
+
+    if validation_error:
+        error_message = validation_error
         return
 
     if not identifier_is_unique(new_duty["identifier"]):
@@ -44,12 +46,12 @@ def identifier_is_unique(identifier):
 def validate_duty(new_duty):
 
     if not new_duty["identifier"]:
-        return False
+        return "Please enter a duty number"
     
     if not new_duty["description"]:
-        return False
+        return "Please enter a duty description"
     
-    return True
+    return None
 
 def get_error_message():
     return error_message
