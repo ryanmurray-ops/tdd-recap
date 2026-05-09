@@ -117,9 +117,9 @@ def test_homepage_has_identifier_label():
     response = test_app.get("/")
     assert '<label for="identifier">Duty Number</label>' in response.text
 
-def test_homepage_has_identifier_label():
+def test_homepage_has_description_label():
     response = test_app.get("/")
-    assert '<label for="identifier">Duty description</label>' in response.text
+    assert '<label for="identifier">Duty Description</label>' in response.text
 
 def test_homepage_form_has_submit_button():
     response = test_app.get("/")
