@@ -168,13 +168,13 @@ def test_empty_description_shows_error_message():
 
     assert "Please enter a duty description" in response.text
 
-def test_duplicate_identifier_shows_error_messahe():
-    test_app.post("/app-duty", data={
+def test_duplicate_identifier_shows_error_message():
+    test_app.post("/add-duty", data={
         "identifier": "12",
         "description": "valid description"
     })
 
-    test_app.post("/app-duty", data={
+    test_app.post("/add-duty", data={
         "identifier": "12",
         "description": "valid description"
     })
