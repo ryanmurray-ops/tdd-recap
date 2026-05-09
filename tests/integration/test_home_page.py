@@ -190,11 +190,3 @@ def test_duplicate_identifier_shows_error_message():
     response = test_app.get("/")
 
     assert "Duty identifier already exists" in response.text
-
-# def test_home_page_is_reachable(page:Page):
-#     page.goto("localhost:5000/")
-#     expect(page).to_have_title(re.compile("Index"))
-#     expect(page.locator("header")).to_be_visible()
-#     expect(page.get_by_text("Duty 1")).to_be_visible()
-
-  
