@@ -168,6 +168,21 @@ def test_empty_description_shows_error_message():
 
     assert "Please enter a duty description" in response.text
 
+def test_duplicate_identifier_shows_error_messahe():
+    test_app.post("/app-duty", data={
+        "identifier": "12",
+        "description": "valid description"
+    })
+
+    test_app.post("/app-duty", data={
+        "identifier": "12",
+        "description": "valid description"
+    })
+
+    response = test_app.get("/")
+
+    assert "Duty identifier already exists" in response.text
+
 # def test_home_page_is_reachable(page:Page):
 #     page.goto("localhost:5000/")
 #     expect(page).to_have_title(re.compile("Index"))
