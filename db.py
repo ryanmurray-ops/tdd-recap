@@ -31,6 +31,7 @@ def add_duty(new_duty):
         return
 
     if not identifier_is_unique(new_duty["identifier"]):
+        error_message = "Duty identifier already exists"
         return
 
     duties.append(new_duty)
