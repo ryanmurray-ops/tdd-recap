@@ -1,16 +1,18 @@
+from duty import Duty
+
 duties = [
-    {
-        "identifier": 5, 
-        "description": "Build and operate a continuous Integration (CI) capability, employing version control of source code and related artifacts"
-    },
-    {
-        "identifier": 7, 
-        "description": "Provision cloud infrastructure using APIs, continually improve infrastructure-as-code, considering use of industry leading technologies as they become available (e.g. Serverless, Containers)"
-    },
-    {
-        "identifier": 10, 
-        "description": "Implement a good coverage of monitoring (metrics, logs), ensuring that alerts are visible, tuneable and actionable"
-    }
+    Duty(
+        5,
+        "Build and operate a continuous Integration (CI) capability, employing version control of source code and related artifacts"
+    ),
+    Duty(
+        7,
+        "Provision cloud infrastructure using APIs, continually improve infrastructure-as-code, considering use of industry leading technologies as they become available (e.g. Serverless, Containers)"
+    ),
+    Duty(
+        10,
+        "Implement a good coverage of monitoring (metrics, logs), ensuring that alerts are visible, tuneable and actionable"
+    ),
 ]
 
 error_message = None
@@ -34,12 +36,18 @@ def add_duty(new_duty):
         error_message = "Duty identifier already exists"
         return
 
-    duties.append(new_duty)
+    duty = Duty(
+        new_duty["identifier"],
+        new_duty["description"]
+    )
+    duties.append(duty)
 
 def identifier_is_unique(identifier):
 
+    print([type(d) for d in duties])
+
     for duty in duties:
-        if duty["identifier"] == identifier:
+        if duty.identifier == identifier:
             return False
     
     return True

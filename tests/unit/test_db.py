@@ -1,22 +1,24 @@
 import pytest
 import db
+from duty import Duty
 
 @pytest.fixture(autouse=True)
 def reset_duties():
     db.duties.clear()
     db.duties.extend([
-        {
-        "identifier": 5, 
-        "description": "Build and operate a continuous Integration (CI) capability, employing version control of source code and related artifacts"
-    },
-    {
-        "identifier": 7, 
-        "description": "Provision cloud infrastructure using APIs, continually improve infrastructure-as-code, considering use of industry leading technologies as they become available (e.g. Serverless, Containers)"
-    },
-    {
-        "identifier": 10, 
-        "description": "Implement a good coverage of monitoring (metrics, logs), ensuring that alerts are visible, tuneable and actionable"
-    }
+        Duty(
+            5,
+            "Build and operate a continuous Integration (CI) capability, employing version control of source code and related artifacts"
+        ),
+        Duty(
+            7,
+            "Provision cloud infrastructure using APIs, continually improve infrastructure-as-code, considering use of industry leading technologies as they become available (e.g. Serverless, Containers)"
+        ),
+        Duty(
+            10,
+            "Implement a good coverage of monitoring (metrics, logs), ensuring that alerts are visible, tuneable and actionable"
+        ),
+        
     ])
 
     db.error_message = None
@@ -31,7 +33,12 @@ def test_add_duty_adds_new_duty_to_duties_variable():
 
     duties = db.get_all_duties()
 
-    assert new_duty in duties
+    found_duty = False
+
+    for duty in duties:
+        if duty.identifier == "12" and duty.description == "Stored duty":
+            found_duty = True
+    assert found_duty is True
 
 def test_identifier_is_unique_returns_false_for_duplicate_identifier():
     db.add_duty({
