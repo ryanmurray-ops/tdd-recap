@@ -44,8 +44,6 @@ def add_duty(new_duty):
 
 def identifier_is_unique(identifier):
 
-    print([type(d) for d in duties])
-
     for duty in duties:
         if duty.identifier == identifier:
             return False
